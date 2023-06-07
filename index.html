@@ -4,10 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="game.js"> </script>
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Welcome to Rock-Paper-Scissors</h1>
+    </div>
+    <div class="score">
+        <h3>Score</h3>
+        <p id="winner-loser-text">Lets Play</p>
+    </div>
+    <div class="pc-text">
+        <p>Player VS CPU</p>
+    </div>    
+    <div id="player-computer-scores">
+        <div id="player">
+
+        </div>
+        <div id="computer">
+
+        </div>
+    </div>
+    <div class="game-score-container">
+        <div class="game-container">
+            <div class="sword">
+                <img src="./images/sword.png" alt="sword photo" onclick="" style="cursor: pointer">
+            </div>
+            <div class="lance">
+                <img src="./images/lance.png" alt="sword photo" onclick="" style="cursor: pointer">
+            </div>
+            <div class="axe">
+                <img src="./images/axe.png" alt="sword photo" onclick="" style="cursor: pointer">
+            </div>
+        </div>
+        
+        <div class="score-container">
+            <h3>Rules</h3>
+            <div class="axe-lance">
+                <img src="./images/axe.png" alt="sword photo">
+                <span> > </span>
+                <img src="./images/lance.png" alt="sword photo">
+            </div>
+            <div class="lance-sword">
+                <img src="./images/lance.png" alt="sword photo">
+                <span> > </span>
+                <img src="./images/sword.png" alt="sword photo" onclick="">
+            </div>
+            <div class="sword-axe">
+                <img src="./images/sword.png" alt="sword photo" onclick="">
+                <span> > </span>
+                <img src="./images/axe.png" alt="sword photo">
+            </div>
+        </div>
+    </div>
+    <!--
+    <div id="container">
+        <button id="1">Click Me</button>
+        <button id="2">Click Me</button>
+        <button id="3">Click Me</button>
+    </div>
+-->
 </body>
+<script src="game.js"> </script>
 </html>

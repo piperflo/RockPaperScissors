@@ -1,54 +1,95 @@
+const sword = document.querySelector('.sword');
+const axe = document.querySelector('.axe');
+const lance = document.querySelector('.lance');
+let score = document.getElementById('score');
+let player = document.getElementById('player');
+let computer = document.getElementById('computer');
+let winLoserText = document.getElementById('winner-loser-text');
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
     let randomNum = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     if(randomNum === 1){
-        return "rock";
+        return "sword";
     }
     else if(randomNum === 2){
-        return "paper";
+        return "lance";
     }
     else{
-        return "scissors";
+        return "axe";
     }
 }
 
 function getWinner(answer){
     let playerChoice = answer.trim().toLowerCase();
-    let computer = getComputerChoice();
+    let computerChoice = getComputerChoice();
     console.log(playerChoice);
     console.log(computer);
-    if(playerChoice === "rock" && computer === "paper"){
-        return "Sorry you lose, rock loses to paper";
+    if(playerChoice === "sword" && computerChoice === "lance"){
+        computerScore++; 
+        computer.innerText = ` ${computerScore} `;
+        return "Sorry you lose, sword loses to lance";
     }
-    else if(playerChoice === "rock" && computer === "scissors"){
-        return "Congratulations, rock beats scissors";
+    else if(playerChoice === "sword" && computerChoice === "axe"){
+        playerScore++; 
+        player.innerText = ` ${playerScore} `;
+        return "Congratulations, sword beats axe";
     }
-    else if(playerChoice === "rock" && computer === "rock"){
+    else if(playerChoice === "sword" && computerChoice === "sword"){
         return "Tie game";
     }
-    else if(playerChoice === "scissors" && computer === "paper"){
-        return "Congratulations, scissors beats to paper";
+    else if(playerChoice === "axe" && computerChoice === "lance"){
+        playerScore++; 
+        player.innerText = ` ${playerScore} `;
+        return "Congratulations, axe beats to lance";
     }
-    else if(playerChoice === "scissors" && computer === "rock"){
-        return "Sorry you lose, scissors loses to rock";
+    else if(playerChoice === "axe" && computerChoice === "sword"){
+        computerScore++; 
+        computer.innerText = ` ${computerScore} `;
+        return "Sorry you lose, axe loses to sword";
     }
-    else if(playerChoice === "scissors" && computer === "scissors"){
+    else if(playerChoice === "axe" && computerChoice === "axe"){
         return "Tie game";
     }
-    else if(playerChoice === "paper" && computer === "paper"){
+    else if(playerChoice === "lance" && computerChoice === "lance"){
         return "Tie game";
     }
-    else if(playerChoice === "paper" && computer === "rock"){
-        return "Congratulations, paper beats to rock";
+    else if(playerChoice === "lance" && computerChoice === "sword"){
+        playerScore++; 
+        player.innerText = ` ${playerScore} `;
+        return "Congratulations, lance beats to sword";
     }
-    else if(playerChoice === "paper" && computer === "scissors"){
-        return "sorry, paper loses to scissors";
+    else if(playerChoice === "lance" && computerChoice === "axe"){
+        computerScore++; 
+        computer.innerText = ` ${computerScore} `;
+        return "sorry, lance loses to axe";
     }
     else{
         return "invalid input";
     }
 }
 
-let answer = (prompt("Please enter rock, paper, or scissors: ").toString());
+player.innerText = ` ${playerScore} `;
+computer.innerText = ` ${computerScore} `;
+//let answer = "";
+sword.addEventListener('click', () => {
+    answer = "sword";
+    winLoserText.innerText = ` ${getWinner(answer.toString())} `;
+});
+
+axe.addEventListener('click', () => {
+    answer = "axe";
+    winLoserText.innerText = ` ${getWinner(answer.toString())} `;
+});
+
+lance.addEventListener('click', () => {
+    answer = "lance";
+    winLoserText.innerText = ` ${getWinner(answer.toString())} `;
+});
 
 
-console.log(getWinner(answer.toString()));
+//let payerChoice = 
+//let answer = (prompt("Please enter sword, lance, or axe: ").toString());
+
+//console.log(getWinner(answer.toString()));
